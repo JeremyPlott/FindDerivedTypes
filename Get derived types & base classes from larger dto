@@ -1,0 +1,5 @@
+            var derivedTypes = (from domainAssembly in AppDomain.CurrentDomain.GetAssemblies()
+                from assemblyType in domainAssembly.GetTypes()
+                where typeof(largeDto).IsAssignableFrom(assemblyType)
+                && !assemblyType.IsAbstract
+                select assemblyType).ToList();
